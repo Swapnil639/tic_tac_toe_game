@@ -1,6 +1,6 @@
 package com.bridgelabz;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class TicTacToeGame {
     static char[] board = new char[10];
@@ -8,24 +8,12 @@ public class TicTacToeGame {
     static char computerPlayer;
 
     public static void main(String[] args) {
-        System.out.println("Welcome to Tic Tac Toe game !");
+
+        System.out.println("Welcome to TicTacToe Game");
         createBoard();
         playerChoice();
         showBoard();
-    }
 
-    // UC1 create board
-    public static void createBoard() {
-        for (int i = 1; i < board.length; i++) {
-            board[i] = ' ';
-        }
-    }
-
-    // UC2 player choose letter x or o
-    public static void playerChoice() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Choose X or O : ");
-        player = scanner.next().toUpperCase().charAt(0);
         if (player == 'X') {
             computerPlayer = 'O';
         } else {
@@ -37,7 +25,18 @@ public class TicTacToeGame {
         }
     }
 
-    // UC3 display board
+    public static void createBoard() {
+        for (int i = 0; i < board.length; i++) {
+            board[i] = ' ';
+        }
+    }
+
+    public static void playerChoice() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Choose X or O : ");
+        player = ((scanner.next().toUpperCase(Locale.ROOT)).charAt(0));
+    }
+
     public static void showBoard() {
         System.out.println(" " + board[1] + " | " + board[2] + " | " + board[3]);
         System.out.println("-----------");
@@ -46,17 +45,16 @@ public class TicTacToeGame {
         System.out.println(" " + board[7] + " | " + board[8] + " | " + board[9]);
     }
 
-    // UC4  make move to a desired location
     public static void makeMove() {
-        System.out.println("choose an index from 1 to 9 to write x or o :");
+        System.out.println("Choose an index from 1 to 9 to write 'X': ");
         Scanner scanner = new Scanner(System.in);
         int index = scanner.nextInt();
         if (board[index] == ' ') {
             board[index] = player;
         } else {
-            System.out.println("choose an empty place ");
+            System.out.println("   Choose an empty place!   ");
             System.out.println();
+            makeMove();
         }
     }
-
 }
