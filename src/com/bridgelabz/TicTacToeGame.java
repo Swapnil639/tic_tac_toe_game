@@ -34,7 +34,7 @@ public class TicTacToeGame {
     public static void playerChoice() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Choose X or O : ");
-        player = ((scanner.next().toUpperCase(Locale.ROOT)).charAt(0));
+        player = ((scanner.next().toUpperCase().charAt(0));
     }
 
     public static void showBoard() {
