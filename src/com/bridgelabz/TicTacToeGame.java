@@ -48,6 +48,8 @@ public class TicTacToeGame {
             System.out.println("Its tails so You start 1st ");
             makeMove();
         }
+        player = ((scanner.next().toUpperCase().charAt(0));
+
     }
 
     public static void showBoard() {
